@@ -1,80 +1,127 @@
-# 🚀 Task Queue App
+# 🧩 Simple Queue System (Go + React)
 
-A modern task queue system built with **Go** (backend) and **ReactJS** (frontend). It supports creating, managing, and retrying tasks. Features include status filtering, auto-refresh, pagination, and a clean UI with TailwindCSS.
+A full-stack task queue management app built with **Go** for the backend and **React** for the frontend. It includes features like task retry, filtering, pagination, and auto-refresh.
 
----
+## 📦 Features
 
-## 📌 Features
-
-- ✅ Add new tasks with data input
-- 🔁 Auto-refresh task list every 5 seconds
-- 🔍 Filter tasks by status: `pending`, `done`, `failed`
-- ♻️ Retry failed tasks instantly
-- 📃 Pagination support for large datasets
-- ✨ Responsive UI with TailwindCSS
+- Queue task data via API
+- View and filter task status (pending, failed, done)
+- Retry failed tasks
+- Pagination and auto-refresh
+- Built with Docker and Docker Compose for easy deployment
 
 ---
 
 ## 📁 Project Structure
 
-task-queue-app/
-├── backend/ # Golang REST API
-│ ├── main.go
-│ └── Dockerfile
-├── frontend/ # ReactJS frontend
-│ ├── src/
-│ └── Dockerfile
-├── docker-compose.yml # Compose for full app
+```
+project-root/
+├── backend/        # Go backend
+│   ├── main.go
+│   ├── go.mod
+│   └── Dockerfile
+├── frontend/       # React frontend
+│   ├── src/
+│   ├── package.json
+│   └── Dockerfile
+├── docker-compose.yml
 └── README.md
+```
 
 ---
-## 🐳 Getting Started with Docker
 
-### 📋 Prerequisites
+## 🚀 Quick Start (Docker Compose)
 
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
+Make sure you have **Docker** and **Docker Compose** installed.
 
-### ▶️ Run the app
+### 1. Clone the repository
+```bash
+git clone https://github.com/ezzycreative1/simple-queue-system.git
+cd simple-queue-system
+```
 
+### 2. Build and run containers
 ```bash
 docker-compose up --build
+```
+
+- React app will run at: `http://localhost:3000`
+- Go backend API will run at: `http://localhost:8080`
+
+### 3. Stop containers
+```bash
+docker-compose down
+```
 
 ---
 
-Frontend runs on: http://localhost:3000
-Backend API: http://localhost:8080
+## 🛠 Backend (Go)
 
-💻 Running Locally (Dev Mode)
-
-Backend
-
+### Build and Run Manually (Optional)
+```bash
 cd backend
-go run main.go
+go mod tidy
+go build -o queue-backend
+./queue-backend
+```
 
-Frontend
+### API Endpoints
+- `GET /api/tasks` — fetch task list
+- `POST /api/enqueue` — enqueue a new task
+- `POST /api/retry/{id}` — retry a failed task
 
+---
+
+## 💻 Frontend (React)
+
+### Run in Development (Optional)
+```bash
 cd frontend
 npm install
-npm run dev
+npm start
+```
 
-📡 API Endpoints
+### Build for Production
+```bash
+npm run build
+```
 
-Method	Endpoint	    Description
-POST	/api/enqueue	Add a new task
-GET	    /api/tasks	    Get list of tasks
-POST	/api/retry/:id	Retry a failed task by ID
+---
 
-📸 Screenshot
+## 🐳 Docker Compose
 
+### `docker-compose.yml`
+```yaml
+version: '3.8'
 
-⚙️ Built With
-Backend: Go 1.22, native HTTP, JSON, net/http
-Frontend: ReactJS, TailwindCSS, React Toastify
-Docker: Multi-service development with Docker Compose
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: queue-backend
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
 
-🧑‍💻 Developer
-Created by Adi Setyadharma
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: queue-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+```
 
-🪪 License
-Licensed under the MIT License.
+---
+
+## 📝 License
+
+MIT License © 2025
+
+---
+
+For improvements or issues, feel free to open a PR or issue!
