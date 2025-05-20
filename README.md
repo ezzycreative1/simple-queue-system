@@ -27,10 +27,6 @@ task-queue-app/
 ├── docker-compose.yml # Compose for full app
 └── README.md
 
-yaml
-Copy
-Edit
-
 ---
 
 ## 🐳 Getting Started with Docker
