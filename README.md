@@ -28,7 +28,6 @@ task-queue-app/
 └── README.md
 
 ---
-
 ## 🐳 Getting Started with Docker
 
 ### 📋 Prerequisites
@@ -40,15 +39,19 @@ task-queue-app/
 
 ```bash
 docker-compose up --build
-Frontend runs on: http://localhost:3000
 
+---
+
+Frontend runs on: http://localhost:3000
 Backend API: http://localhost:8080
 
 💻 Running Locally (Dev Mode)
+
 Backend
 
 cd backend
 go run main.go
+
 Frontend
 
 cd frontend
@@ -63,7 +66,6 @@ GET	    /api/tasks	    Get list of tasks
 POST	/api/retry/:id	Retry a failed task by ID
 
 📸 Screenshot
-
 
 
 ⚙️ Built With
