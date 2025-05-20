@@ -1,0 +1,338 @@
+{
+	"info": {
+		"_postman_id": "300a701f-4290-4c22-b50e-d872ec079997",
+		"name": "simple queue system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "551676"
+	},
+	"item": [
+		{
+			"name": "healthz",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/healthz",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"healthz"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/healthz",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"healthz"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 22:09:26 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Service is healthy\",\n    \"status\": \"success\"\n}"
+				}
+			]
+		},
+		{
+			"name": "enqueue",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": \"data 1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/enqueue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"enqueue"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "succes",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": \"data 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/enqueue",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"enqueue"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 22:09:41 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "85"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": \"1747778981382582333-414\"\n    },\n    \"message\": \"Task queued\",\n    \"status\": \"success\"\n}"
+				}
+			]
+		},
+		{
+			"name": "list queue",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/queue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"queue"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/queue",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"queue"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 22:09:56 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "784"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"meta\": {\n            \"count\": 4,\n            \"limit\": 20,\n            \"page\": 1,\n            \"total\": 4\n        },\n        \"tasks\": [\n            {\n                \"id\": \"1747775648832504536-531\",\n                \"data\": \"test 1\",\n                \"status\": \"done\",\n                \"created_at\": \"2025-05-21T05:14:08.83255163+08:00\",\n                \"updated_at\": \"2025-05-21T05:14:10.834425431+08:00\"\n            },\n            {\n                \"id\": \"1747775663698872078-355\",\n                \"data\": \"test 2\",\n                \"status\": \"done\",\n                \"created_at\": \"2025-05-21T05:14:23.698882769+08:00\",\n                \"updated_at\": \"2025-05-21T05:14:25.700373805+08:00\"\n            },\n            {\n                \"id\": \"1747775675119281500-237\",\n                \"data\": \"test 3\",\n                \"status\": \"done\",\n                \"created_at\": \"2025-05-21T05:14:35.119296322+08:00\",\n                \"updated_at\": \"2025-05-21T05:14:59.976782712+08:00\"\n            },\n            {\n                \"id\": \"1747778981382582333-414\",\n                \"data\": \"data 1\",\n                \"status\": \"failed\",\n                \"created_at\": \"2025-05-21T06:09:41.382929667+08:00\",\n                \"updated_at\": \"2025-05-21T06:09:43.386563586+08:00\"\n            }\n        ]\n    },\n    \"message\": \"List of tasks\",\n    \"status\": \"success\"\n}"
+				}
+			]
+		},
+		{
+			"name": "retry",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": \"test 1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/retry/1747775675119281500-237",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"retry",
+						"1747775675119281500-237"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": \"data 3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/retry/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"retry",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1747779019323533449-624"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 22:10:58 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "86"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": \"1747779019323533449-624\"\n    },\n    \"message\": \"Task retried\",\n    \"status\": \"success\"\n}"
+				}
+			]
+		}
+	]
+}
