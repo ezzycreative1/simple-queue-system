@@ -45,7 +45,7 @@ export default function TaskTable({ tasks, onRetry }) {
                     {task.status === 'failed' && (
                       <button
                         onClick={() => onRetry(task.id)}
-                        className="px-4 py-1.5 bg-red-500 hover:bg-red-600 text-white text-xs font-medium rounded-md transition"
+                        className="px-4 py-1.5 border border-red-500 text-red-500 hover:text-white hover:bg-red-500 dark:hover:bg-red-600 dark:border-red-600 text-xs font-medium rounded-md transition"
                         type="button"
                       >
                         Retry
